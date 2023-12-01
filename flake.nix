@@ -25,7 +25,7 @@
         devShells.default =
 
           # ... with no globally-available CC toolchain ...
-          pkgs.mkShellNoCC {
+          pkgs.mkShell {
             name = "rules_nixpkgs_shell";
 
             # ... which makes available the following dependencies, 
