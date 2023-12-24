@@ -6,3 +6,6 @@ after upgrading nixpkgs version
 +    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
 
 $ nix flake update 
+
+
+bazel run //:bazel -- update-repos -from_file=go.mod -to_macro=deps.bzl%go_dependencies

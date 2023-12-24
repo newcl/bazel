@@ -19,14 +19,13 @@ http_archive(
 )
 
 http_archive(
-        name = "bazel_skylib",
-        sha256 = "74d544d96f4a5bb630d465ca8bbcfe231e3594e5aae57e1edbf17a6eb3ca2506",  
-        urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
-            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
-        ],
-        
-    )
+    name = "bazel_skylib",
+    sha256 = "74d544d96f4a5bb630d465ca8bbcfe231e3594e5aae57e1edbf17a6eb3ca2506",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
+        "https://github.com/bazelbuild/bazel-skylib/releases/download/1.3.0/bazel-skylib-1.3.0.tar.gz",
+    ],
+)
 
 http_archive(
     name = "bazel_gazelle",
@@ -65,31 +64,29 @@ http_archive(
 #   )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-
 load("@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl", "rules_nixpkgs_dependencies")
 
 rules_nixpkgs_dependencies()
 
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_git_repository", "nixpkgs_package", "nixpkgs_cc_configure")
-
-load("@io_tweag_rules_nixpkgs//nixpkgs:toolchains/go.bzl", "nixpkgs_go_configure") # optional
-
-
-
-
+load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_cc_configure", "nixpkgs_git_repository", "nixpkgs_package")
+load("@io_tweag_rules_nixpkgs//nixpkgs:toolchains/go.bzl", "nixpkgs_go_configure")  # optional
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 protobuf_deps()
 
-
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
-load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
 ############################################################
 # Define your own dependencies here using go_repository.
 # Else, dependencies declared by rules_go/gazelle will be used.
 # The first declaration of an external repository "wins".
 ############################################################
+
+load("//:deps.bzl", "go_dependencies")
+
+# gazelle:repository_macro deps.bzl%go_dependencies
+go_dependencies()
 
 go_rules_dependencies()
 
