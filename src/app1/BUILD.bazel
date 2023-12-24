@@ -5,7 +5,11 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/newcl/bazel/src/app1",
     visibility = ["//visibility:private"],
-    deps = ["//proto/app1","@org_uber_go_fx//:go_default_library"],
+    deps = ["//proto/app1",
+    "@org_uber_go_fx//:go_default_library",
+    "@com_github_rs_zerolog//:go_default_library",
+    "@com_github_rs_zerolog//log:go_default_library",
+    ],
 )
 
 go_binary(

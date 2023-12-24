@@ -8,22 +8,58 @@ def go_dependencies():
         version = "v1.3.0",
     )
     go_repository(
+        name = "com_github_coreos_go_systemd_v22",
+        importpath = "github.com/coreos/go-systemd/v22",
+        sum = "h1:RrqgGjYQKalulkV8NGVIfkXQf6YYmOyiJKk8iXXhfZs=",
+        version = "v22.5.0",
+    )
+    go_repository(
         name = "com_github_davecgh_go_spew",
         importpath = "github.com/davecgh/go-spew",
         sum = "h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=",
         version = "v1.1.1",
     )
     go_repository(
+        name = "com_github_godbus_dbus_v5",
+        importpath = "github.com/godbus/dbus/v5",
+        sum = "h1:9349emZab16e7zQvpmsbtjc18ykshndd8y2PG3sgJbA=",
+        version = "v5.0.4",
+    )
+    go_repository(
+        name = "com_github_mattn_go_colorable",
+        importpath = "github.com/mattn/go-colorable",
+        sum = "h1:fFA4WZxdEF4tXPZVKMLwD8oUnCTTo08duU7wxecdEvA=",
+        version = "v0.1.13",
+    )
+    go_repository(
+        name = "com_github_mattn_go_isatty",
+        importpath = "github.com/mattn/go-isatty",
+        sum = "h1:JITubQf0MOLdlGRuRq+jtsDlekdYPia9ZFsB8h/APPA=",
+        version = "v0.0.19",
+    )
+    go_repository(
         name = "com_github_pkg_errors",
         importpath = "github.com/pkg/errors",
-        sum = "h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=",
-        version = "v0.8.1",
+        sum = "h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=",
+        version = "v0.9.1",
     )
     go_repository(
         name = "com_github_pmezard_go_difflib",
         importpath = "github.com/pmezard/go-difflib",
         sum = "h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=",
         version = "v1.0.0",
+    )
+    go_repository(
+        name = "com_github_rs_xid",
+        importpath = "github.com/rs/xid",
+        sum = "h1:mKX4bl4iPYJtEIxp6CYiUuLQ/8DYMoz0PUdtGgMFRVc=",
+        version = "v1.5.0",
+    )
+    go_repository(
+        name = "com_github_rs_zerolog",
+        importpath = "github.com/rs/zerolog",
+        sum = "h1:FcTR3NnLWW+NnTwwhFWiJSZr4ECLpqCm6QsEnyvbV4A=",
+        version = "v1.31.0",
     )
     go_repository(
         name = "com_github_stretchr_objx",
@@ -46,8 +82,8 @@ def go_dependencies():
     go_repository(
         name = "org_golang_x_sys",
         importpath = "golang.org/x/sys",
-        sum = "h1:ntjMns5wyP/fN65tdBD4g8J5w8n015+iIIs9rtjXkY0=",
-        version = "v0.0.0-20220412211240-33da011f77ad",
+        sum = "h1:CM0HF96J0hcLAwsHPJZjfdNzs0gftsLfgKt57wWHJ0o=",
+        version = "v0.12.0",
     )
     go_repository(
         name = "org_uber_go_atomic",
