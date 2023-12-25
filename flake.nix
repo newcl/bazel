@@ -30,7 +30,7 @@
 
             # ... which makes available the following dependencies, 
             # all sourced from the `pkgs` package set:
-            packages = with pkgs; [ bazel_5 bazel-buildtools cacert nix git direnv go protobuf ];
+            packages = with pkgs; [ bazel_5 bazel-buildtools cacert nix git direnv go protobuf jdk11 ];
           };
       });
 }

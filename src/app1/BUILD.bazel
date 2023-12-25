@@ -1,19 +1,14 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "app1_lib",
-    srcs = ["main.go"],
+    srcs = ["app.go"],
     importpath = "github.com/newcl/bazel/src/app1",
     visibility = ["//visibility:private"],
-    deps = ["//proto/app1",
-    "@org_uber_go_fx//:go_default_library",
-    "@com_github_rs_zerolog//:go_default_library",
-    "@com_github_rs_zerolog//log:go_default_library",
-    ],
 )
 
-go_binary(
-    name = "app1",
-    embed = [":app1_lib"],
-    visibility = ["//visibility:public"],
+go_test(
+    name = "app1_test",
+    srcs = ["app_test.go"],
+    embed = [":app1"],
 )

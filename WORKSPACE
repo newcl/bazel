@@ -63,6 +63,15 @@ http_archive(
 #     strip_prefix = "abseil-cpp-273292d1cfc0a94a65082ee350509af1d113344d",
 #   )
 
+# load("@bazel_tools//tools/jdk:local_java_repository.bzl", "local_java_repository")
+
+# local_java_repository(
+#   name = "additionaljdk",          # Can be used with --java_runtime_version=additionaljdk, --java_runtime_version=11 or --java_runtime_version=additionaljdk_11
+#   version = "11",                    # Optional, if not set it is autodetected
+#   java_home = "$JAVA_HOME",  # Path to directory containing bin/java
+# )
+
+
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 load("@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl", "rules_nixpkgs_dependencies")
 
