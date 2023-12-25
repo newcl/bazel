@@ -11,3 +11,6 @@ $ nix flake update
 bazel run //:bazel -- update-repos -from_file=go.mod -to_macro=deps.bzl%go_dependencies
 
 bazel test --test_output=all //...
+
+If BUILD file enters a bad state, if no manual text were updated, empty the BUILD file 
+and use gazelle to re-generate them
