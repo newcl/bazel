@@ -17,3 +17,4 @@ bazel test --test_output=all //...
 If BUILD file enters a bad state, if no manual text were updated, empty the BUILD file 
 and use gazelle to re-generate them
 
+https://stackoverflow.com/questions/69982637/bazel-build-docker-container-with-local-golang-module
