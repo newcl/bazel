@@ -9,3 +9,5 @@ $ nix flake update
 
 
 bazel run //:bazel -- update-repos -from_file=go.mod -to_macro=deps.bzl%go_dependencies
+
+bazel test --test_output=all //...
