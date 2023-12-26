@@ -1,5 +1,5 @@
 # load the http_archive rule itself
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
 # load rules_nixpkgs
 http_archive(
@@ -129,3 +129,63 @@ load(
 )
 
 _go_image_repos()
+
+# http_archive(
+#     name = "io_bazel_rules_k8s",
+#     strip_prefix = "rules_k8s-0.5",
+#     urls = ["https://github.com/bazelbuild/rules_k8s/archive/v0.5.tar.gz"],
+#     sha256 = "773aa45f2421a66c8aa651b8cecb8ea51db91799a405bd7b913d77052ac7261a",
+# )
+# load("@io_bazel_rules_k8s//k8s:k8s.bzl", "k8s_repositories")
+
+
+# load("@io_bazel_rules_k8s//toolchains/kubectl:kubectl_configure.bzl", "kubectl_configure")
+
+# http_file(
+#     name="k8s_binary",
+#     downloaded_file_path = "kubectl",
+#     sha256="0e03ab096163f61ab610b33f37f55709d3af8e16e4dcc1eb682882ef80f96fd5",
+#     executable=True,
+#     urls=["https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"],
+# )
+# kubectl_configure(name="k8s_config", kubectl_path="@k8s_binary//file")
+# k8s_repositories()
+
+# kubectl_configure(name="k8s_config", build_srcs=True)
+
+# kubectl_configure(name="k8s_config", build_srcs=True,
+#     k8s_commit = "v1.28.5",
+#     # Run wget https://github.com/kubernetes/kubernetes/archive/v1.13.1.tar.gz
+#     # to download v1.13.1.tar.gz and run sha256sum on the downloaded archive
+#     # to get the value of this attribute.
+#     # k8s_sha256 = "677d2a5021c3826a9122de5a9c8827fed4f28352c6abacb336a1a5a007e434b7",
+#     k8s_sha256 = "dd6a1faa4566995792e3fabe36617092729d2d83d0450eeb6d395afcd03a3885",
+#     # Open the archive downloaded from https://github.com/kubernetes/kubernetes/archive/v1.13.1.tar.gz.
+#     # This attribute is the name of the top level directory in that archive.
+#     k8s_prefix = "kubernetes-1.28.5"
+# )
+
+# k8s_repositories()
+
+#load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
+# load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
+
+# go_rules_dependencies()
+# go_register_toolchains()
+
+# kubectl_configure(name="k8s_config", build_srcs=True,
+#     k8s_commit = "v1.13.1",
+#     # Run wget https://github.com/kubernetes/kubernetes/archive/v1.13.1.tar.gz
+#     # to download v1.13.1.tar.gz and run sha256sum on the downloaded archive
+#     # to get the value of this attribute.
+#     k8s_sha256 = "677d2a5021c3826a9122de5a9c8827fed4f28352c6abacb336a1a5a007e434b7",
+#     # Open the archive downloaded from https://github.com/kubernetes/kubernetes/archive/v1.13.1.tar.gz.
+#     # This attribute is the name of the top level directory in that archive.
+#     k8s_prefix = "kubernetes-1.13.1"
+# )
+
+# k8s_repositories()
+
+# load("@io_bazel_rules_k8s//k8s:k8s_go_deps.bzl", k8s_go_deps = "deps")
+
+# k8s_go_deps()

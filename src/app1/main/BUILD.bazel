@@ -1,27 +1,10 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-load("@io_bazel_rules_docker//go:image.bzl", "go_image")
-load("@io_bazel_rules_docker//container:container.bzl", "container_image")
-
-
-go_image(
-    name = "go_image",
-    embed = [":main_lib"],
-     goarch = "amd64",
-    goos = "linux",
-    pure = "on",
-)
-
-container_image(
-    name = "docker22",
-    base = ":go_image",
-)
-
 
 go_library(
     name = "main_lib",
     srcs = ["main.go"],
     importpath = "github.com/newcl/bazel/src/app1/main",
-    visibility = ["//visibility:private"],
+    visibility = ["//visibility:public"],
     deps = ["//src/app1/cmd"],
 )
 
